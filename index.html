@@ -13,12 +13,13 @@
 			<div id="wrapper">
 
 				<!-- Main -->
-					<section id="main">
-						<header>
-							<span class="avatar"><img src="images/maitreya_dp.jpg" alt="" /></span>
-							<h1>Maitreya Save</h1>
-							<p>Android Developer</p>
-						</header>
+				<!-- TODO: Solve hover issue on pic -->
+					<div class="rootNode">
+						<span class="avatar"><img src="images/maitreya_dp.jpg" alt="" /></span>
+					</div>
+					
+					<div id="main" class="nodeDescription">
+						
 						<!--
 						<hr />
 						<h2>Extra Stuff!</h2>
@@ -56,32 +57,42 @@
 						</form>
 						<hr />
 						-->
-						<footer>
+						
+						<footer id="root_footer">
+							<h1>Maitreya-Save</h1>
+							<p>Android Developer</p>
+
 							<ul class="icons">
-								<li><a href="#" class="icon brands fa-twitter">Twitter</a></li>
-								<li><a href="#" class="icon brands fa-instagram">Instagram</a></li>
-								<li><a href="#" class="icon brands fa-facebook-f">Facebook</a></li>
+								<li><a href="https://www.instagram.com/themattybot/" class="icon brands fa-instagram">Instagram</a></li>
+								<li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin">Linked In</a></li>
 							</ul>
 						</footer>
-					</section>
-				<!-- Wrapper -->
-					<div class="subwrapper">
-						<section class="submain">
-							<header>
-								<h1>Maitreya Save</h1>
-								<p>Android Developer</p>
-							</header>
-						</section>
-						<section class="submain">
-							<header>
-								<h1>Maitreya Save</h1>
-								<p>Android Developer</p>
-							</header>
-						</section>
+					</div>
+					<div class = "node" id="node1">
+						<ul class="icons innerNode" ><li><a href="https://www.instagram.com/themattybot/" class="icon brands fa-github"></a></ul>
+					</div>
+					<div class = "node" id="node2">
+						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
+					</div>
+					<div class = "node" id="node3">
+						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
+					</div>
+					<div class = "node" id="node4">
+						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
+					</div>
+					<div class = "node" id="node5">
+						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
+					</div>
+					<div class = "node" id="node6">
+						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
 					</div>
 
+
+
+				<!-- Start: Previous attempt at making square child nodes -->
+
 				<!-- Wrapper -->
-					<div class="subwrapper">
+					<!-- <div class="subwrapper">
 						<section class="submain">
 							<header>
 								<h1>Maitreya Save</h1>
@@ -94,7 +105,24 @@
 								<p>Android Developer</p>
 							</header>
 						</section>
-					</div>
+					</div> -->
+
+				<!-- Wrapper -->
+					<!-- <div class="subwrapper">
+						<section class="submain">
+							<header>
+								<h1>Maitreya Save</h1>
+								<p>Android Developer</p>
+							</header>
+						</section>
+						<section class="submain">
+							<header>
+								<h1>Maitreya Save</h1>
+								<p>Android Developer</p>
+							</header>
+						</section>
+					</div> -->
+				<!-- End: Previous attempt at making square child nodes -->
 
 				<footer id="footer">
 					<ul class="copyright">
@@ -104,17 +132,31 @@
 			</div>
 			
 
-
 		
 
-
 		<!-- Scripts -->
+			<script src="assets/js/leader-line.min.js"></script>
+
 			<script>
 				if ('addEventListener' in window) {
 					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 				}
+				var startElement = document.getElementsByClassName('rootNode')[0];
+				var endElement = document.getElementById('node1');
+				new LeaderLine(
+					startElement,
+					endElement,
+					{
+						color: 'purple',
+						dropShadow: true,
+						dash: {
+							animation: true
+						}
+					}
+				)
 			</script>
+
 
 	</body>
 </html>
