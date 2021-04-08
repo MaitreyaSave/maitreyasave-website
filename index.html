@@ -7,11 +7,13 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload3">
+		
+
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-
+				<canvas id="particles"></canvas>
 				<!-- Main -->
 				<!-- TODO: Solve hover issue on pic -->
 					<div class="rootNode">
@@ -68,24 +70,25 @@
 							</ul>
 						</footer>
 					</div>
+					<!-- About Me Node-->
 					<div class = "node" id="node1">
 						<ul class="icons innerNode" ><li><a href="https://www.instagram.com/themattybot/" class="icon brands fa-github"></a></ul>
 					</div>
+					<div class = "nodeMessage" id="nodeMessage1">
+						hi
+					</div>
+					<!-- Projects Node-->
 					<div class = "node" id="node2">
 						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
 					</div>
+					<div class = "nodeMessage" id="nodeMessage2">
+						hello
+					</div>
+					<!-- Contact Me Node-->
 					<div class = "node" id="node3">
 						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
 					</div>
-					<div class = "node" id="node4">
-						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
-					</div>
-					<div class = "node" id="node5">
-						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
-					</div>
-					<div class = "node" id="node6">
-						<ul class="icons innerNode" ><li><a href="https://www.linkedin.com/in/maitreyasave/" class="icon brands fa-linkedin"></a></ul>
-					</div>
+				
 
 
 
@@ -136,25 +139,83 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/leader-line.min.js"></script>
+			<script src="assets/js/particles.js"></script>
 
 			<script>
 				if ('addEventListener' in window) {
 					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 				}
-				var startElement = document.getElementsByClassName('rootNode')[0];
-				var endElement = document.getElementById('node1');
-				new LeaderLine(
-					startElement,
-					endElement,
-					{
-						color: 'purple',
-						dropShadow: true,
-						dash: {
-							animation: true
-						}
-					}
-				)
+
+
+				// var startElement = document.getElementsByClassName('rootNode')[0];
+				// var startElement = document.getElementById('node1');
+				// var endElement = document.getElementById('node2');
+				// new LeaderLine(
+				// 	startElement,
+				// 	endElement,
+				// 	{
+				// 		color: 'purple',
+				// 		dropShadow: true,
+				// 		dash: {
+				// 			animation: true
+				// 		}
+				// 	}
+				// );
+
+				// Particles
+				new Particles(document.getElementById("particles"), {
+
+					// size of the particles
+					size: { 
+					min: 0,
+					max: 2
+					},
+
+					// density of particles on the canvas
+					density: 300,  
+
+					// speed of the particules
+					speed: 0.3, 
+
+					// number of times per second the canvas is refreshed
+					fps: 60, 
+
+					// color of the particles
+					color: "#FFFFFF" 
+
+				});
+				// Draw node descriptions relative to node position
+				var node1 = document.getElementById('node1');
+				var nodeMessage1 = document.getElementById('nodeMessage1');
+
+				var moving = false;
+				node1.addEventListener('transitionend', function () {
+					moving = true;
+				});
+				function drawNodeDescriptionAtCurrentPosition(node, nodeMessage) {
+					var rect = node.getBoundingClientRect()
+					// console.log(rect.top, rect.left);
+					nodeMessage.style.position = "absoluite";
+					var left_pos = rect.left - 20;
+					var top_pos = rect.top - 80;
+					nodeMessage.style.left = left_pos + 'px';	
+					nodeMessage.style.top = top_pos + 'px';					
+				}
+				
+
+				node1.addEventListener("mouseover", function(event){
+					window.requestAnimationFrame(function(){
+						drawNodeDescriptionAtCurrentPosition(node1, nodeMessage1);
+					});
+				});
+
+				node2.addEventListener("mouseover", function(event){
+					window.requestAnimationFrame(function(){
+						drawNodeDescriptionAtCurrentPosition(node2, nodeMessage2);
+					});
+				});
+
 			</script>
 
 
