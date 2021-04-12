@@ -1000,7 +1000,6 @@
 		
 /* Node */
 	.node {
-		background: #ffffff;
 		border-radius: 50%;
 		cursor: default;
 		max-width: 100%;
@@ -1010,9 +1009,9 @@
 		visibility: visible;
 		transition: all ease 500ms;
 	}
-	/* .node:hover {
+	.node:hover {
 		transform: scale(1.2);
-	} */
+	}
 
 	.innerNode {
 		position: absolute;
@@ -1022,7 +1021,7 @@
 	}
 
 	#node1 {
-		top: 65.6%;
+		top: 45.6%;
 		left: 29.2%;
 		/* animation: 60s linear 1s  infinite spinAround; */
 		/* -webkit-animation: 10s linear 0s forwards infinite spinAround; */
@@ -1040,7 +1039,7 @@
 	}
 	#node3 {
 		left: 70%;
-		top: 75%;
+		top: 70%;
 		animation: 1s ease-out 0.9s forwards 1 fadeIn;
 		-webkit-animation: 1s ease-out 0.9s forwards 1 fadeIn;
 	}
@@ -1198,6 +1197,7 @@
 
 .rootNode {
 	position: fixed;
+	width: 200px;
 	top: 37%;
 }
 
@@ -1209,7 +1209,7 @@
 }
 
 .nodeMessage {
-	background: #ffffff;
+	background: #acacdd;
 	cursor: default;
 	position: absolute;
 	border-radius: 25px;
@@ -1233,7 +1233,7 @@
 
 #node1:hover + #nodeMessage1{
 	/* opacity: 1; */
-	animation: 1s ease-out 0.3s forwards 1 fadeIn;
+	animation: 1s ease 0.3s forwards 1 fadeIn;
 }
 
 #node1:hover ul li a{
